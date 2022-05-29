@@ -1,3 +1,4 @@
+
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -23,23 +24,25 @@
     </header>
 
     <ul class="list-group todos mx-auto text-light">
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span>Keep Coding!</span>
-        <i class="far fa-trash-alt delete"></i>
-      </li>
-
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span>Never Surrender!</span>
-        <i class="far fa-trash-alt delete"></i>
-      </li>
-
-      <li class="list-group-item d-flex justify-content-between align-items-center">
-        <span>I declare I will Make it!</span>
-        <i class="far fa-trash-alt delete"></i>
-      </li>
-
+      <?php foreach ($tasks as $task) : ?>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <span> 
+          <?php if($task->completed):?>
   
+            <strike><?= $task->description;?></strike>
+  
+            <?php else:?>
+  
+              <?= $task->description;?> 
+  
+            <?php endif; ?>
+          </span>
+          <i class="far fa-trash-alt delete"></i>
+        </li>
+  
+      <?php endforeach; ?>
     </ul>
+
 
     <form class="add text-center my-4">
       <label for="add" class="text-light">Add a new todo...</label>
