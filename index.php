@@ -2,7 +2,9 @@
 
 require 'functions.php';
 
-$pdo = connectToDb();
+require 'database/connection.php';
+
+$pdo = Connection::make();
 
 $tasks = selectAll($pdo);
 
