@@ -3,4 +3,4 @@ require 'database/connection.php';
 require 'database/QueryBuilder.php';
 
 
-$query = new QueryBuilder(Connection::make());
+return new QueryBuilder(Connection::make());
